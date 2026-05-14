@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Lost Item</title>
+</head>
+<body>
+
+<h1>Report Lost Item</h1>
+
+<form id="lostItemForm">
+
+    <input type="text" id="itemName" placeholder="Item Name"><br><br>
+
+    <input type="text" id="description" placeholder="Description"><br><br>
+
+    <input type="text" id="location" placeholder="Lost Location"><br><br>
+
+    <input type="text" id="ownerName" placeholder="Your Name"><br><br>
+
+    <input type="text" id="contactNumber" placeholder="Contact Number"><br><br>
+
+    <button type="submit">Submit</button>
+
+</form>
+
+<script>
+
+document.getElementById("lostItemForm").addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    const item = {
+
+        itemName: document.getElementById("itemName").value,
+        description: document.getElementById("description").value,
+        location: document.getElementById("location").value,
+        ownerName: document.getElementById("ownerName").value,
+        contactNumber: document.getElementById("contactNumber").value
+    };
+
+    fetch("/saveItem", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(item)
+
+    })
+
+    .then(response => response.text())
+
+    .then(data => {
+
+        alert(data);
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
