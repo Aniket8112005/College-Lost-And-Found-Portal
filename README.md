@@ -34,8 +34,6 @@ The **College Lost & Found Portal** provides a centralized platform where studen
 ## 🚀 Features
 
 ### 👤 User Features
-
-- User Authentication
 - Report Lost Items
 - Report Found Items
 - Search & Filter Items
@@ -91,41 +89,23 @@ src/
 
 ---
 
-## 📸 Screenshots
-
-### 🏠 Home Page
-(Add Screenshot Here)
-
-### 📝 Lost Item Form
-(Add Screenshot Here)
-
-### 🔍 Search Page
-(Add Screenshot Here)
-
----
-
 ## ⚙️ Configuration
 
 ### Database Configuration
 
-```properties
-spring.datasource.url=jdbc:mysql://localhost:3306/lost_found_db
-spring.datasource.username=root
-spring.datasource.password=YOUR_PASSWORD
-
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
++----------------+--------------+------+-----+---------+----------------+
+| Field          | Type         | Null | Key | Default | Extra          |
++----------------+--------------+------+-----+---------+----------------+
+| id             | bigint       | NO   | PRI | NULL    | auto_increment |
+| contact_number | varchar(255) | YES  |     | NULL    |                |
+| description    | varchar(255) | YES  |     | NULL    |                |
+| item_name      | varchar(255) | YES  |     | NULL    |                |
+| location       | varchar(255) | YES  |     | NULL    |                |
+| owner_name     | varchar(255) | YES  |     | NULL    |                |
++----------------+--------------+------+-----+---------+----------------+
 ```
 
 ---
-
-## 🧩 API Endpoint
-
-### Save Lost Item
-
-```http
-POST /saveItem
-```
 
 ### Request Body
 
@@ -160,8 +140,6 @@ public class LostItem {
 ```
 
 ---
-
-## 🖥️ How to Run the Project
 
 ### 1️⃣ Clone Repository
 
